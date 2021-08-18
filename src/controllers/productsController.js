@@ -1,7 +1,5 @@
-//Al editar un producto tendría aparecer la imagen actual del mismo
-
 const path = require ('path')
-
+const {validationResult} = require ("express-validator");
 let db = require ('../database/models')
 
 let productsController = {    
@@ -15,15 +13,56 @@ create: (req, res) => {
 
 store: (req, res) => {
 
-    db.Products.create({
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
-        imagen: req.file.filename,
-        precio: req.body.precio,
-        stock: req.body.stock, 
-        category_id: req.body.categoria
-    })
-        .then (() => res.redirect('/products'))
+    let resultValidation = validationResult (req);
+
+    if (resultValidation.errors.length > 0) {
+        db.Categories.findAll()
+            .then(function(categories) {
+                return res.render (path.join (__dirname, '../views/products/create.ejs'), {
+                    categories:categories,
+                    errors: resultValidation.mapped(),
+                    oldData: req.body                
+                })
+            })
+    } else {
+        if (req.file) {
+            var imagenProducto = req.file.filename
+        } else {
+            imagenProducto = null
+        }    
+
+        db.Products.findOne({ 
+            where: {
+                nombre: req.body.nombre
+            }           
+        })    
+            .then ((productInData) => {
+                if(productInData != null){
+                    db.Categories.findAll()
+                        .then(function(categories) {
+                            return res.render ('products/create', {
+                                categories: categories,
+                                errors: {
+                                    email: {
+                                        msg: "Este producto ya se encuentra registrado"
+                                    }
+                                } 
+                            })       
+                        })                    
+                }
+                else {
+                        db.Products.create({
+                            nombre: req.body.nombre,
+                            descripcion: req.body.descripcion,
+                            imagen: imagenProducto,
+                            precio: req.body.precio,
+                            stock: req.body.stock, 
+                            category_id: req.body.categoria
+                        })
+                            .then (() => res.redirect('/products'))
+                }
+           })
+    }
 },
 
 edit: (req, res) => {
@@ -34,18 +73,40 @@ edit: (req, res) => {
 },
 
 update: (req, res) => {
-    db.Products.update({
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
-        precio: req.body.precio,
-        stock: req.body.stock, 
-        category_id: req.body.categoria
-    }, {
-        where: {
-            id: req.params.id
-        }
-    })
-        .then (() => res.redirect('/products'))
+
+    let resultValidation = validationResult (req);
+
+    if (resultValidation.errors.length > 0) {
+        Promise.all([db.Products.findByPk(req.params.id), db.Categories.findAll()])
+            .then(([product, categories]) => {
+                res.render (path.join (__dirname, '../views/products/edit.ejs'), {
+                    product: product, 
+                    categories: categories,
+                    errors: resultValidation.mapped(),
+                })
+            })
+    } else {
+
+        if (req.file) {
+            var imagenProducto = req.file.filename
+        } else {
+            imagenProducto = null
+        }    
+
+        db.Products.update({
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            precio: req.body.precio,
+            imagen: imagenProducto,
+            stock: req.body.stock, 
+            category_id: req.body.categoria
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+            .then (() => res.redirect('/products'))               
+    }
 },
 
 delete: (req, res) => {

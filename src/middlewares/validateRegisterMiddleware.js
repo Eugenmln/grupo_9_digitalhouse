@@ -4,16 +4,16 @@ const { body } = require ("express-validator");
 
 module.exports = [
     
-    body ("nombre_y_apellido").notEmpty().withMessage("Tenes que escribir tu nombre y apellido"),
-    body ("nombre_y_apellido").isLength({ min: 5}).withMessage("El nombre debe tener al menos 5 caracteres"),
-    body ("email").notEmpty().withMessage("Tenes que escribir tu email").bail().isEmail().withMessage("Formato no valido para correo electronico"),
-    body ("contraseña").notEmpty().withMessage("Tenes que escribir una constraseña con al menos 8 caracteres").bail() .isLength({ min: 8}).withMessage('La contraseña debe tener mas de 8 caracteres'),
-    body('imagePerfil').custom((value, { req }) => {
+    body ("nombre_y_apellido").notEmpty().withMessage("Tenés que escribir tu nombre y apellido").bail(),
+    body ("nombre_y_apellido").isLength({ min: 2}).withMessage("El nombre debe tener al menos 2 caracteres"),
+    body ("email").notEmpty().withMessage("Tenés que escribir tu email").bail().isEmail().withMessage("Formato no válido para correo electrónico"),
+    body ("contraseña").notEmpty().withMessage("Tenés que escribir una constraseña con al menos 8 caracteres").bail().isLength({ min: 8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
+    body('avatar').custom((value, { req }) => {
         let file = req.file;
-        let acceptedExtensions = ['.jpg', '.png'];
+        let acceptedExtensions = ['.jpg', '.JPG', '.png', '.PNG', '.jpeg', '.JPEG', '.gif', '.GIF'];
 
         if (!file) {
-            throw new Error('Tenés que subir una imagen');
+            throw new Error('Tenés que subir una imagen de perfil');
         } else {
             let fileExtension = path.extname(file.originalname);
             if (!acceptedExtensions.includes(fileExtension)) {

@@ -1,6 +1,9 @@
 const express = require ('express')
 const path = require ('path')
 const router = express.Router ()
+const validateProductMiddleware = require("../middlewares/validateProductMiddleware");
+
+
 
 // Multer
 const multer = require ('multer')
@@ -24,16 +27,11 @@ let productsController = require ('../controllers/productsController')
 
 //Rutas
 
-// Agrego las siguientes dos rutas pertenecientes a buscadores dentro del listado de productos
-
 router.get ('/buscarPorNombre', productsController.buscarPorNombre)
 
 router.get ('/buscarPorCategoria', productsController.buscarPorCategoria)
 
-// Si a las rutas anteriores las pongo a lo último no funcionan y no sé por qué
-
 router.get ('/', productsController.list)
-
 
 // router.get ('/productos', productsController.productos)
 
@@ -41,11 +39,11 @@ router.get ('/create', productsController.create)
 
 router.get ('/:id', productsController.detalle)
 
-router.post ('/', fileUpload.single ('imagen'), productsController.store)
+router.post ('/', fileUpload.single ('imagen'), validateProductMiddleware, productsController.store)
 
 router.get ('/:id/edit', productsController.edit)
 
-router.put ('/:id', productsController.update)
+router.put ('/:id', fileUpload.single ('imagen'), validateProductMiddleware, productsController.update)
 
 router.delete ('/:id', productsController.delete)
 

@@ -1,22 +1,24 @@
-const User = require ("../models/Users")
+let db = require('../database/models')
 
-function userLogged(req,res,next){
-    res.locals.isLogged = false
+function userLogged(req,res,next) {
+    
+    res.locals.isLogged = false 
 
-    let emailInCookie = req.cookies.userEmail;
-    let userFromCookie = User.findByField("email", emailInCookie);
-
-    if(userFromCookie){
-    req.session.userLogged = userFromCookie
+    if (req.cookies.userEmail && !req.session.isLogged) {
+        db.Users.findOne({ 
+            where: {
+                email: req.cookies.userEmail
+            }           
+        })    
+            .then((userFromCookie) => {                   
+                    req.session.userLogged = userFromCookie  
+                })
     }
 
-
-    if(req.session && req.session.userLogged){
+    if (req.session.userLogged) {
         res.locals.isLogged = true
-        res.locals.userLogged = req.session.userLogged
     }
-
-
+        
     next ()
 }
 

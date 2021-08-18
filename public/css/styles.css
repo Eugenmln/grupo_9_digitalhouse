@@ -528,7 +528,6 @@ float: left;
 .imagenDePerfil{
   position: relative;
   width: 15em;
-  height: 13em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -708,7 +707,6 @@ width: 100%;
   .imagenDePerfil{
     position: relative;
     width: 15em;
-    height: 13em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -796,7 +794,6 @@ width: 100%;
     .imagenDePerfil{
       position: relative;
       width: 20em;
-      height: 13em;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -849,7 +846,6 @@ width: 100%;
     .imagenDePerfil{
       position: relative;
       width: 15em;
-      height: 13em;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1631,3 +1627,31 @@ width: 80px;
   margin-top: 20px;
   margin-left: 20px;
 }
+
+/**/
+
+.text-danger {
+  color: red;
+  font-weight: bold;
+}
+
+.imagen-de-perfil {
+  text-align: left;
+}
+
+.errores-create-product {
+  color: red;
+  font-weight: bold;  
+}
+
+.errores-register-user  {
+  color: red;
+  font-weight: bold;  
+}
+
+.errores-login-user  {
+  color: red;
+  font-weight: bold;  
+}
+
+

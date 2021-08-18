@@ -19,19 +19,10 @@ app.use (methodOverride ('_method'))
 //Procesamiento por POST (ponerlo arriba de las rutas)
 app.use (express.urlencoded ({extended: false}));
 app.use (express.json());
+
 app.use(session({secret: "Secreto", resave: false, saveUninitialized: false}));
 app.use(cookieParser());
 app.use(usuarioLogueado);
-
-
-//Rutas Main
-app.use("/",mainRouter);
-
-//Rutas Users
-app.use("/users", usersRouter)
-
-//Rutas Products
-app.use("/products", productsRouter) 
 
 //EJS
 app.set ("view engine", "ejs");
@@ -42,6 +33,17 @@ app.set("views", path.join(__dirname, "views"));
 app.listen(1050, () => {
     console.log("El Servidor esta corriendo en el puerto 1050")
 })
+
+//Rutas Main
+app.use("/",mainRouter);
+
+//Rutas Users
+app.use("/users", usersRouter)
+
+//Rutas Products
+app.use("/products", productsRouter) 
+
+
 
 
 

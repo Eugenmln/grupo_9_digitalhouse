@@ -45,6 +45,14 @@ module.exports = (sequelize, dataTypes) => {
             as: 'categories',
             foreignKey: 'category_id'
         })
+        
+        Product.belongsToMany(models.Orders, {
+            as: 'orders',
+            through: 'orders_products',
+            foreignKey: 'product_id',
+            otherKey: 'order_id',
+            timestamps: false
+        })
     }
     
 

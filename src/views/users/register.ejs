@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include ('../partials/head.ejs') %>
+<!--
+<script src="/js/validator.js"></script>
+-->
 <body>
     <%- include ('../partials/header.ejs') %>
     <% if (typeof errors != 'undefined') { %> 
@@ -10,6 +13,9 @@
             <% } %>
         </ul>
     <% } %>
+    <div>
+        <ul class="errores-register-user"></ul>
+    </div>
     
     <!-- Sección principal -->
     <section class="registro-login">
@@ -22,21 +28,20 @@
             <div class="linea"> </div>
         </div>
         <div class="registrate-con-email"> Registrate con tu dirección de email </div>
-        <form class="form" action="/users/register" method="POST" enctype="multipart/form-data">
+        <form class="form user-register validate-register-user" action="/users/register" method="POST" enctype="multipart/form-data">
             <div class="datos">
-                <input type="text" name="nombre_y_apellido" placeholder="Nombre y apellido">    
+                <input class="validate-register-nombre_y_apellido" type="text" name="nombre_y_apellido" placeholder="Nombre y apellido" value="<%= locals.oldData && locals.oldData.nombre_y_apellido ? oldData.nombre_y_apellido : '' %>">    
             </div>
             <div class="datos">
-                <input type="email" name="email" placeholder="Email">    
+                <input class="validate-register-email" type="email" name="email" placeholder="Email" value="<%= locals.oldData && locals.oldData.email ? oldData.email : '' %>">    
             </div>
             <div class="datos">
-                <input type="password" name="contraseña" placeholder="Escriba su contraseña">    
+                <input class="validate-register-contraseña" type="password" name="contraseña" placeholder="Escriba su contraseña">    
             </div>
             <div class="datos">
-                    <label>Imagen de perfil:</label>
-                    <img src="" alt="" id="imgPreview">
-                        <input type="file" name="avatar">
-                        </div>
+                <div class="categoria-create-edit imagen-de-perfil"> Imagen de perfil: </div>
+                <input class="validate-register-avatar" type="file" name="avatar">
+            </div>
            <!-- <div class="datos">
                 <input type="password" name="confirmeSuContraseña" placeholder="Confirme su contraseña">    
             </div> -->
@@ -54,6 +59,6 @@
             </div>
         </form>
     </section>
-    <%- include ('../partials/footer.ejs') %>    
+    <%- include ('../partials/footer.ejs') %>
 </body>
 </html>

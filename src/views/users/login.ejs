@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include ('../partials/head.ejs') %>
+<script src="/js/validator.js"></script>
 <body>
     <!-- Header -->
     <%- include ('../partials/header.ejs') %>
-    
-    <% if (typeof errors != 'undefined') { %>
+    <% if (typeof errors != 'undefined') { %> 
         <ul>
             <% for (const oneError in errors) { %>
                 <li class="text-danger"><%= errors[oneError].msg %></li>
             <% } %>
         </ul>
     <% } %>
+    <div>
+        <ul class="errores-login-user"></ul>
+    </div>
+    
     <!-- Sección principal -->
     <section class="registro-login">
         <div class="facebook"> 
@@ -23,23 +27,15 @@
             <div class="linea"> </div>
         </div>
         <div class="registrate-con-email"> Ingresá con tu email y contraseña </div>
-        <form class="form" action="/users/login" method="POST">
+        <form class="form user-login validate-login-user" action="/users/login" method="POST">
             <div class="datos">
-                <input type="email" name="email" placeholder="Email">    
-                <% if (locals.errors && errors.email){ %>
-                    <div class="text-danger">
-                        <%= errors.email.msg %> </div>
-               <% } %>
+                <input class="validate-login-email" type="email" name="email" placeholder="Email">    
             </div>
             <div class="datos">
-                <input type="password" name="contraseña" placeholder="Contraseña">    
-                <% if (locals.errors && errors.constraseña){ %>
-                    <div class="text-danger">
-                        <%= errors.contraseña.msg %> </div>
-               <% } %>
+                <input class="validate-login-contraseña" type="password" name="contraseña" placeholder="Contraseña">    
             </div>
             <div class="boton-recordar" >
-                <label for="checkbox"><input type="checkbox" name="recordame"> Recordar contraseña </label>
+                <label for="checkbox"><input type="checkbox" name="recordame"> Recordar usuario </label>
             </div>
             <div class="datos"> 
                 <a href="#"> ¿Olvidaste tu contraseña? </a>

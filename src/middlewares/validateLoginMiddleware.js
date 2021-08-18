@@ -1,10 +1,9 @@
 const {check} = require("express-validator");
-const path = require("path");
 
-module.exports=[
-    check("email").notEmpty().withMessage("Tienes que escribir un email"),
-    check("email").isEmail().withMessage("Tienes que escribir un email válido"),
+module.exports = [
+    check("email").notEmpty().withMessage("Tenés que escribir un email").bail(),
+    check("email").isEmail().withMessage("Tenés que escribir un email válido"),
 
-    check("password").notEmpty().withMessage("Tienes que escribir una contraseña"),
-    check("password").isLength({ min: 8 }).withMessage("Tienes que escribir una contraseña con más de 8 caracteres"),
+    check("contraseña").notEmpty().withMessage("Tenés que escribir una contraseña con al menos 8 caracteres").bail(),
+    check("contraseña").isLength({ min: 8 }).withMessage("Tenés que escribir una contraseña con al menos 8 caracteres"),
 ]

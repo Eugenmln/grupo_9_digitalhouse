@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
+<script src="/js/validator.js"></script>
 <body>
     <!-- Header -->    
     <%- include('../partials/header') %>
+    <% if (typeof errors != 'undefined') { %> 
+        <ul>
+            <% for (const oneError in errors) { %>
+                <li class="text-danger"><%= errors[oneError].msg %></li>
+            <% } %>
+        </ul>
+    <% } %>
+    <div>
+        <ul class="errores-create-product"></ul>
+    </div>
     <!-- Sección principal -->
     <section class="registro-login">
         <div class="carga-un-nuevo-producto"> <h3 class="carga-un-nuevo-producto" >Editá tu producto </h3> </div>
-        <form class="form" action="/products/<%= product.id %>?_method=PUT" method="POST">
+        <form class="form validate-create-product" action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <!-- Nombre del Producto -->
             <div class="categoria-create-edit" > Nombre del producto: </div>
             <div class="datos">
-                <input type="text" name="nombre" placeholder="Nombre del Producto" value="<%= product.nombre %>">    
+                <input class="validate-product-name" type="text" name="nombre" placeholder="Nombre del Producto" value="<%= product.nombre %>">    
             </div>
             <!-- Descripción del Producto -->
             <div class="categoria-create-edit"> Descripción del Producto: </div>
             <div class="datos" >
-                <textarea class="descripcion-del-producto-create-edit" name="descripcion"> <%= product.descripcion %>  </textarea>    
+                <textarea class="descripcion-del-producto-create-edit validate-product-descripcion" name="descripcion" placeholder= "Escribí una breve descripción"><%= product.descripcion %></textarea>    
             </div>
             <!-- Imágenes -->
-            <!-- Deberían aparecer las imágenes actuales --> 
+            <div class="categoria-create-edit"> Imagen del Producto: </div>
             <div class="datos-imagen">
-                <input class="boton-adjuntar" type="file" name="imagen" multiple>    
+                <input class="boton-adjuntar validate-product-imagen" type="file" name="imagen" multiple>    
             </div>            
             <!-- Categoría --> 
             <div>
                 <div class="categoria-create-edit"> Categoría: </div>
                     <% for (let i = 0; i < categories.length; i++) { %>
                     <div class="create-edit-checkbox">
-                        <label> <input type="radio" name="categoria" value="<%= categories[i].id %>" <%= product.category_id == (i + 1)  ? "checked" : "" %>> <%= categories[i].nombre %> </label>
+                        <label> <input class="validate-product-categoria" type="radio" name="categoria" value="<%= categories[i].id %>" <%= product.category_id == (i + 1)  ? "checked" : "" %>> <%= categories[i].nombre %> </label>
                     </div>
                     <% } %> 
             </div>
             <!-- Precio --> 
             <div class="datos" id="precio">
-                <input type="text" name="precio" placeholder="Precio (Ej: $ 799,99)" value="<%= product.precio %>">    
+                <input class="validate-product-precio" type="text" name="precio" placeholder="Precio (Ej: $ 799,99)" value="<%= product.precio %>">    
             </div>
             <!-- Stock -->
             <div class="datos">
-                <input type="text" name="stock" placeholder="Stock (Ej: 100)" value="<%= product.stock %>">    
+                <input class="validate-product-stock" type="text" name="stock" placeholder="Stock (Ej: 100)" value="<%= product.stock %>">    
             </div>
             <!-- Enviar -->
             <div class="datos">

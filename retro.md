@@ -71,5 +71,20 @@
 
 - Mantener la comunicacion y el trabajo en equipo.
 
+# Retrospectiva Sprint 6:
+
+# Que estamos haciendo bien:
+
+- Buen clima de trabajo y compañerismo. 
+
+# Que estamos haciendo mal:
+
+- Empezamos a trabajar en el sprint muy cerca de la fecha de entrega.
+- Falta de organización para repartir las tareas y llegar a cumplirlas de la mejor manera, dado el tiempo escaso del que dispuso cada uno en lo personal.
+
+# Que tenemos que seguir haciendo:
+
+- Mantener el buen clima y el compañerismo para mejorar en la organización y optimización del tiempo. 
+
 
 

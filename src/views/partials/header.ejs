@@ -28,16 +28,18 @@
                 <a href="/Extras">Extras</a>
             </div>
         </div>
+
         <% if (locals.isLogged){ %>
             
             <a href="/users/perfilDeusuario"><button id="iconos">Perfil</button></a>
             <a href="/users/logout"><button id="iconos" class="fas fa-users-slash"></button></a>
             <a href="/users/carrito"><button id="iconos" class="fas fa-store" alt="carrito"></button></a>
             <a href=#buscar><button id="iconos" class="fas fa-search"></button></a>
+
        <% } else {  %>
-        <a href="/users/login"><button id="iconos" class="fas fa-user-ninja"></button></a>
-        <a href="/users/register"><button id="iconos" class="fas fa-id-badge"></button></a>
-        <a href=#buscar><button id="iconos" class="fas fa-search"></button></a>
+            <a href="/users/login"><button id="iconos" class="fas fa-user-ninja"></button></a>
+            <a href="/users/register"><button id="iconos" class="fas fa-id-badge"></button></a>
+            <a href=#buscar><button id="iconos" class="fas fa-search"></button></a>
         <% } %>
     </div>
 </header>
