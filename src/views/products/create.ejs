@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<script src="/js/validator.js"></script>
+<script src="/js/validator.j"></script>
 <body>
 
     <!-- Header -->    
 
     <%- include('../partials/header') %>
-    <% if (typeof errors != 'undefined') { %> 
-        <ul>
-            <% for (const oneError in errors) { %>
-                <li class="text-danger"><%= errors[oneError].msg %></li>
-            <% } %>
-        </ul>
-    <% } %>
-    <div>
-        <ul class="errores-create-product"></ul>
-    </div>
 
     <!-- Sección principal -->
 
@@ -30,44 +20,70 @@
 
             <div class="categoria-create-edit"> Nombre del Producto: </div>
             <div class="datos">
-                <input class="validate-product-name" type="text" name="nombre" placeholder=" Nombre del Producto" value="<%= locals.oldData && locals.oldData.nombre ? oldData.nombre : '' %>">    
+                <input class="validate-product-name" type="text" name="nombre" placeholder=" Nombre del Producto" value="<%= locals.oldData && locals.oldData.nombre ? oldData.nombre : '' %>">
+                <% if (locals.errors && errors.nombre) { %>
+                    <div class="text-danger" > <%= errors.nombre.msg %> </div>
+                    
+                <% } %>    
             </div>
 
             <!-- Descripción del Producto -->
 
             <div class="categoria-create-edit"> Descripción del Producto: </div>
             <div class="datos" >
-                <textarea class="descripcion-del-producto-create-edit validate-product-descripcion" name="descripcion" placeholder= "Escribí una breve descripción"><%= locals.oldData && locals.oldData.descripcion ? oldData.descripcion : '' %></textarea>    
+                <textarea class="descripcion-del-producto-create-edit validate-product-descripcion" name="descripcion" placeholder= "Escribí una breve descripción"><%= locals.oldData && locals.oldData.descripcion ? oldData.descripcion : '' %></textarea>
+                <% if (locals.errors && errors.descripcion) { %>
+                    <div class="text-danger" > <%= errors.descripcion.msg %> </div>
+                    
+                <% } %>     
             </div>
 
             <!-- Imágenes -->
 
             <div class="categoria-create-edit"> Imagen del Producto: </div> 
             <div class="datos-imagen">
-                <input class="boton-adjuntar validate-product-imagen" type="file" name="imagen" multiple>    
+                <input class="boton-adjuntar validate-product-imagen" type="file" name="imagen" multiple>
+                <% if (locals.errors && errors.imagen) { %>
+                    <div class="text-danger" > <%= errors.imagen.msg %> </div>
+                    
+                <% } %>     
             </div>
 
             <!-- Categoría -->
 
             <div>
-                <div class="categoria-create-edit"> Categoría: </div>
+                <div class="categoria-create-edit"> Categoría: 
                     <% for (let i = 0; i < categories.length; i++) { %>
                     <div class="create-edit-checkbox">
                         <label> <input class='validate-product-categoria' type="radio" name="categoria" value="<%= categories[i].id %>" <%= locals.oldData && locals.oldData.categoria && locals.oldData.categoria == (i + 1)  ? "checked" : "" %>> <%= categories[i].nombre %> </label>
-                    </div>
+                    </div> 
+                    <% } %>
+                    <% if (locals.errors && errors.categoria) { %>
+                        <div class="text-danger" > <%= errors.categoria.msg %> </div>
+                        
                     <% } %> 
+                </div>
+                    
             </div>
 
             <!-- Precio --> 
 
             <div class="datos" id="precio">
-                <input class="validate-product-precio" type="text" name="precio" placeholder="Precio (Ej: $ 799,99)" value="<%= locals.oldData && locals.oldData.precio ? oldData.precio : '' %>">    
+                <input class="validate-product-precio" type="text" name="precio" placeholder="Precio (Ej: $ 799,99)" value="<%= locals.oldData && locals.oldData.precio ? oldData.precio : '' %>">
+                <% if (locals.errors && errors.precio) { %>
+                    <div class="text-danger" > <%= errors.precio.msg %> </div>
+                    
+                <% } %>     
             </div>
 
             <!-- Stock -->
 
             <div class="datos">
-                <input class="validate-product-stock" type="text" name="stock" placeholder="Stock (Ej: 100)" value="<%= locals.oldData && locals.oldData.stock ? oldData.stock : '' %>">    
+                <input class="validate-product-stock" type="text" name="stock" placeholder="Stock (Ej: 100)" value="<%= locals.oldData && locals.oldData.stock ? oldData.stock : '' %>">
+                <% if (locals.errors && errors.stock) { %>
+                    <div class="text-danger" > <%= errors.stock.msg %> </div>
+                    
+                <% } %>     
             </div>
 
             <!-- Enviar -->

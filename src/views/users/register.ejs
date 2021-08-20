@@ -6,18 +6,21 @@
 -->
 <body>
     <%- include ('../partials/header.ejs') %>
-    <% if (typeof errors != 'undefined') { %> 
-        <ul>
-            <% for (const oneError in errors) { %>
-                <li class="text-danger"><%= errors[oneError].msg %></li>
-            <% } %>
-        </ul>
-    <% } %>
-    <div>
-        <ul class="errores-register-user"></ul>
-    </div>
-    
     <!-- Sección principal -->
+    <script>
+        document.querySelector(".boton-rl").onclick = function(){
+            var contraseña = document.querySelector(".contraseña").value;
+            var confirmar = document.querySelector(".confirmar").value;
+    
+            if (contraseña != confirmar){
+                alert("Las contraseñas no son iguales, intente de nuevo.")
+            } else {
+    
+                document.getElementById("boton-registro").setAttribute("type", "submit")
+    
+            }
+        };
+    </script>
     <section class="registro-login">
         <div class="facebook"> 
             <a href="#"><i class="fab fa-facebook-square"> </i> <span class="registrate-con-facebook"> Registrate con Facebook </span></a>
@@ -30,21 +33,37 @@
         <div class="registrate-con-email"> Registrate con tu dirección de email </div>
         <form class="form user-register validate-register-user" action="/users/register" method="POST" enctype="multipart/form-data">
             <div class="datos">
-                <input class="validate-register-nombre_y_apellido" type="text" name="nombre_y_apellido" placeholder="Nombre y apellido" value="<%= locals.oldData && locals.oldData.nombre_y_apellido ? oldData.nombre_y_apellido : '' %>">    
+                <input class="validate-register-nombre_y_apellido" type="text" name="nombre_y_apellido" placeholder="Nombre y apellido" value="<%= locals.oldData && locals.oldData.nombre_y_apellido ? oldData.nombre_y_apellido : '' %>">
+                <% if (locals.errors && errors.nombre_y_apellido) { %>
+                    <div class="text-danger" > <%= errors.nombre_y_apellido.msg %> </div>
+                <% } %>    
             </div>
             <div class="datos">
                 <input class="validate-register-email" type="email" name="email" placeholder="Email" value="<%= locals.oldData && locals.oldData.email ? oldData.email : '' %>">    
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger" > <%= errors.email.msg %> </div>
+                <% } %>
             </div>
             <div class="datos">
                 <input class="validate-register-contraseña" type="password" name="contraseña" placeholder="Escriba su contraseña">    
+                <% if (locals.errors && errors.contraseña) { %>
+                    <div class="text-danger" > <%= errors.contraseña.msg %> </div>
+                <% } %> 
+            </div>
+            <div class="datos">
+                <input class="confirmar" type="password" name="confirmar" placeholder="Confirme su contraseña">
+                <% if (locals.errors && errors.confirmar) { %>
+                    <div class="text-danger" > <%= errors.confirmar.msg %> </div>
+                <% } %>     
             </div>
             <div class="datos">
                 <div class="categoria-create-edit imagen-de-perfil"> Imagen de perfil: </div>
                 <input class="validate-register-avatar" type="file" name="avatar">
-            </div>
-           <!-- <div class="datos">
-                <input type="password" name="confirmeSuContraseña" placeholder="Confirme su contraseña">    
-            </div> -->
+                <% if (locals.errors && errors.avatar) { %>
+                    <div class="text-danger" > <%= errors.avatar.msg %> </div>
+                    
+                <% } %>
+            </div> 
             <div class="checkbox">
                 <label><input type="checkbox" checked> Quiero recibir promociones </label>
             </div>
@@ -57,7 +76,20 @@
             <div class="datos"> 
                 ¿Ya sos cliente? <a href="/users/login"> Iniciar sesión </a> 
             </div>
+            
         </form>
+
+        <script>
+            document.querySelector(".boton-rl").onclick = function(){
+                var contraseña = document.querySelector(".validate-register-contraseña").value;
+                var confirmar = document.querySelector(".confirmar").value;
+        
+                if (contraseña != confirmar){
+                    alert("Las contraseñas no son iguales, intente de nuevo.")
+                }
+            };
+        </script>    
+           
     </section>
     <%- include ('../partials/footer.ejs') %>
 </body>

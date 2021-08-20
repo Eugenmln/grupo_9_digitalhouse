@@ -460,6 +460,24 @@ main section article i{
   color: #424874;
 }
 
+.listContenedor{
+  margin: 15px;
+}
+
+.listFila{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.listColumna{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex:1;
+}
+
 
 
 /* Icono camion */
@@ -1579,6 +1597,10 @@ position: relative;
   text-align: center;
   margin-bottom: 20px;
   font-size: 16px;
+}
+
+.campos{
+  text-align: center;
 }
 
 .nombre-producto{

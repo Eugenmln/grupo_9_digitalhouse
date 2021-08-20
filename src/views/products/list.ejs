@@ -38,18 +38,27 @@
                     </div>
                 </div>
             </form>
-        
+
+            <h1 class="titulosList"> Busqueda de Productos </h1>
+        <div class="listContenedor" >
+            <div class="listFila">
+                <div class="listColumna" >
             <h2 class="titulosList"> Buscar por nombre </h2>
                 <form action="/products/buscarPorNombre" method="GET" class="busquedaList">
                     <input type="text" name="nombre">
                     <input type="submit" value="Buscar" class="buscar-producto">
                 </form>
-        
+                </div>
+                <div class="listColumna" >
             <h2 class="titulosList"> Buscar por Categoría </h2>
                 <form action="/products/buscarPorCategoria" method="GET" class="busquedaList">
                     <input type="text" name="categoria" placeholder="Ej: Vinos, Cervezas, Espirituosas o Licores.">
                     <input type="submit" value="Buscar" class="buscar-producto">
                 </form>
+                </div>
+            </div>
+        </div>
+                
                 <%- include ('../partials/footer.ejs') %> 
             </body>
         </html>
