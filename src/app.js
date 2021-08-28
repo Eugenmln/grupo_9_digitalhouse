@@ -10,6 +10,7 @@ const usuarioLogueado = require ("./middlewares/usuarioLogeado")
 const mainRouter = require ("./routes/main");
 const productsRouter = require("./routes/products");
 const usersRouter = require("./routes/users");
+const apisRouter = require('./routes/apis')
 
 //Procesamiento por PUT y DELETE (ponerlo arriba de las rutas)
 const methodOverride = require ('method-override')
@@ -42,6 +43,9 @@ app.use("/users", usersRouter)
 
 //Rutas Products
 app.use("/products", productsRouter) 
+
+//Rutas APIS
+app.use('/api', apisRouter)
 
 
 
