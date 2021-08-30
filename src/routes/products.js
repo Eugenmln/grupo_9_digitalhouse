@@ -33,6 +33,15 @@ router.get ('/buscarPorCategoria', productsController.buscarPorCategoria)
 
 router.get ('/', productsController.list)
 
+router.get ('/cervezas', productsController.cervezas)
+
+router.get ('/vinos', productsController.vinos)
+
+router.get ('/licores', productsController.licores)
+
+router.get ('/espirituosas', productsController.espirituosas)
+
+
 // router.get ('/productos', productsController.productos)
 
 router.get ('/create', productsController.create)
@@ -46,5 +55,6 @@ router.get ('/:id/edit', productsController.edit)
 router.put ('/:id', fileUpload.single ('imagen'), validateProductMiddleware, productsController.update)
 
 router.delete ('/:id', productsController.delete)
+
 
 module.exports = router

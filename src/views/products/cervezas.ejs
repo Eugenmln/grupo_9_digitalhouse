@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('../partials/head.ejs') %>
+<body>
+    <%- include ('../partials/header.ejs') %>  
+	<main>
+	<h4 class="productosE">Cervezas</h4>			
+	<div class="conteiner">
+	<section class="botellas"> <!--grid-->
+						<% cervezas.forEach(cervezas => {%>
+							<article class="listadoDeProductos"> <!--card-->
+						<a href="/products/<%=cervezas.id%>"><img src="../images/<%=cervezas.imagen%>" alt="productos"> </a>
+						<div class="btn-actions">
+						<p class="prices">Nombre: <%=cervezas.nombre%></p>
+						<p class="prices"><%=cervezas.precio%></p>
+						<p class="prices"><%=cervezas.descripcion%></p>
+						<p class="prices">Stock: <%=cervezas.stock%></p>
+					</div>
+					<div class="boton-comprar-products">
+                        <a href="/products/<%=cervezas.id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+                    </div>
+					</article>
+							<% }) %>
+						
+					</section>
+				</div>         
+			</main>      
+    <%- include ('../partials/footer.ejs') %>  
+</body>
+</html>

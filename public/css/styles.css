@@ -194,15 +194,17 @@ body{
   margin: 80px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
+  grid-gap: 60px;
   align-items: center;
+ 
   }
   .botellas > article{
   box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3) ;
   border-radius: 20px;
   text-align: center;
-  width: 250px;
-  transition: transform .3s
+  width: 200px;
+  transition: transform .3s;
+  margin-bottom: 5px;
   }
   
   .botellas > article:hover{
@@ -225,27 +227,23 @@ body{
   
   }
   
+  
   .listadoDeProductos a{
     width: 100%;
-    height: 100%;
+    height: 580px;
     display: block;
     margin: 0 auto;
-    margin-top: 50px;
-    max-width: 100px;
+    margin-top: 30px;
+    max-width: 1250px;
   }
-  .productosE{
-    text-align: center;
-    color: #424874;
-    font-size: 30px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
+  
   .prices{
     font-size: 0.87em;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     margin-left: 5%;
     color: #424874;
-    line-height: normal;
+  
   }
   
   .boton-comprar-products{
@@ -253,20 +251,28 @@ body{
     border-radius: 20px;
     border: none;
     color: #A6B1E1;
-    width: 100%;
+    width: 05px;
+    height: 20px;
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
   }
 
+  .btn-actions{
+    margin-bottom: 1px;
+  }
 @media (max-width: 550px){
   .botellas{
     grid-template-columns: repeat(1, 1fr);
     align-items: center;
+    
   }
 
   .botellas > .listadoDeProductos{
     text-align: center;
+    width: auto;
+    margin-left: 1px;
+
   }
 
   .slider ul{
@@ -319,11 +325,30 @@ width: 100%;
 }
 /*--------------*/
 /*slider 2*/
-.slider2{
+.swiper {
   width: 100%;
-  overflow: hidden;
-  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  min-height: 300px;
+  background-color: #a6b1e1;
+  padding: 10px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.swiper-button-next,
+.swiper-button-prev{
+  color: gainsboro;
+}
+
 /* aca es*/
 .slider2 ul{
   display: flex;
@@ -518,7 +543,6 @@ article div.articulos{
 .otras-opciones{
   height: 560px;
   width: 100%;
-  position: relative;
   margin-top: 20px;
 }
 
@@ -588,12 +612,14 @@ float: left;
   } 
 
   .botellas{
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    margin: 1px;
   }
 
   .botellas > .listadoDeProductos{
     text-align: center;
+    width: auto;
   }
   .topnav-burger {
     width: 30vw;
@@ -660,6 +686,7 @@ width: 100%;
 @media screen and (min-width: 769px) {
   .botellas{
     grid-template-columns: repeat(2, 1fr);
+    margin-left: 40px ;
   }
 
   .botellas > .listadoDeProductos{
@@ -767,6 +794,7 @@ width: 100%;
   }
   .botellas{
     grid-template-columns: repeat(3, 1fr);
+    margin-left: 65px;
   }
   .burger-menu {
       display: none;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include ('./partials/head.ejs') %>
+    <%- include('./partials/head'); %>
+
 <body>
     <%- include ('./partials/header.ejs') %>  
         <div class="slider">
@@ -13,59 +14,62 @@
         
         <div class="envios">
             <span class="botonP">
-            <button type="submit" class="botonE">Tiempos de envio</button>            
+            <a href="users/envio"><button type="submit" class="botonE">Tiempos de envio</button></a>            
         </span>
         <span class="boton2">    
-        <button type="submit" class="botonE">Ver costos de envio</button>
-            </span>
+            <a href="users/costo"><button type="submit" class="botonE">Ver costos de envio</button></a>
+ 
+    </span>
             </div>
             <div id="envios">
             <h3>Los preferidos de la semana</h3>
         </div>
-            <div class="slider2">
-                <ul>
-                <a href="#"><li><img src="/images/slider2.jpg"/></li></a>
-                </ul>
-                </div>
+        <main>
+         <div class="swiper mySwiper">
+            <section class="swiper-wrapper"> <!--grid-->
+                            <% for (let i = 2; i < 5; i++) { %>
+                                    <article class="swiper-slide"> <!--card-->
+                                       <a href="/products/<%=products[i].id%>"><img src="../images/<%=products[i].imagen%>" alt="productos"> </a>
+                                       <div class="swiper-button-next"></div>
+                                       <div class="swiper-button-prev"></div>
+                                <div class="btn-actions">
+                                <p class="prices">Nombre: <%=products[i].nombre%></p>
+                                <p class="prices"><%=products[i].precio%></p>
+                                <p class="prices"><%=products[i].descripcion%></p>
+                               
+                            </div>
+                            <div class="boton-comprar-products">
+                                <a href="/products/<%=products[i].id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+                            </div>
+                            </article>
+                                    <% } %>
+                                
+                            
+                        </div>               
         <div id="envios">
         <h3>Los destacados del mes</h3>
         </div>
-        <main>
-            <section class="last-visit">
-                <div class="products">
-                    <article>
-                        <a href="/products/productos"><img src="/images/vino.jpg" alt="Vino" class="Vino"></a>
-                        <div class="articulos">
-                            <i class="fas fa-shipping-fast"></i>
-                            <p class="price">$1.650</p>
-                            <h4 class="description">Vino malbec Swartland</h4>
-                        </div>
-                    </article>
-                    <article>
-                        <a href="/products/productos"><img src="/images/jackdaniels.jpg" alt="jackdaniel" class="jackdaniel"></a>
-                        <div class="articulos">
-                            <i class="fas fa-shipping-fast"></i>
-                            <p class="price">$4.500</p>
-                            <h4 class="description">Disfruta de la edicion limitada de Jack Daniels Blue Label</h4>
-                        </div>
-                    </article>
-                    <article>
-                        <a href="/products/productos"><img src="/images/licor.jpg" alt="Promo" class="Promo"></a>
-                        <div class="articulos">
-                            <i class="fas fa-shipping-fast"></i>
-                            <p class="price">$2.500</p>
-                            <h4 class="description">Tenemos un excelente licor llamado Remy Martin</h4>
-                        </div>
-                    </article>
-                    <article>
-                        <a href="/products/productos"><img src="/images/product-1622775304089.jpg" alt="Promo" class="Promo"></a>
-                        <div class="articulos">
-                            <i class="fas fa-shipping-fast"></i>
-                            <p class="price">$1.800</p>
-                            <h4 class="description">Vino "El enemigo" Malbec</h4>
-                        </div>
-                    </article>
-                </section>  
+        
+    	
+            <div class="conteiner20">
+            <section class="botellas"> <!--grid-->
+                            <% for (let i = 0; i < 3; i++) { %>
+                                    <article class="listadoDeProductos"> <!--card-->
+                                <a href="/products/<%=products[i].id%>"><img src="../images/<%=products[i].imagen%>" alt="productos"> </a>
+                                <div class="btn-actions">
+                                <p class="prices">Nombre: <%=products[i].nombre%></p>
+                                <p class="prices"><%=products[i].precio%></p>
+                                <p class="prices"><%=products[i].descripcion%></p>
+                               
+                            </div>
+                            <div class="boton-comprar-products">
+                                <a href="/products/<%=products[i]%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+                            </div>
+                            </article>
+                                    <% } %>
+                                
+                            
+                        </div>               
                     <h3>Otras opciones</h3>
                 <section class="otras-opciones">
                     <img src="/images/otras-opciones.jpg" alt="Promo" class="Peroni">
@@ -76,5 +80,29 @@
 
         </main>
     <%- include ('./partials/footer.ejs') %>  
+  
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 00,
+        stretch: 0,
+        depth: 0,
+        modifier: 1,
+        slideShadows: true,
+      },
+    loop: true,
+    navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }
+});
+  </script>
+    
+
 </body>
 </html>

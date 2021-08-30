@@ -9,7 +9,8 @@
 	<section class="botellas"> <!--grid-->
 						<% products.forEach(products => {%>
 							<article class="listadoDeProductos"> <!--card-->
-						<a href="/products/<%=products.id%>"><img src="/images/<%=products.imagenes%>" alt="productos"> </a>
+						<a href="/products/<%=products.id%>"><img src="../images/<%=products.imagen%>" alt="productos"> </a>
+						<a href="/products/<%=products.id%>"><img src="../images/<%=products.imagen%>" alt="productos"> </a>
 						<div class="btn-actions">
 						<p class="prices">Nombre: <%=products.nombre%></p>
 						<p class="prices"><%=products.precio%></p>
