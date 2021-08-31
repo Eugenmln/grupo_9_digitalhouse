@@ -52,7 +52,7 @@ window.addEventListener('load', function() {
             let extension = imagen.value.slice(-4)
             let acceptedExtensions = ['.jpg',  '.JPG', '.png', '.PNG', '.jpeg', '.JPEG', '.gif', '.GIF']
             if (imagen.value == '') {
-                erroresRegister.push('Tenés que subir una imagen de perfil')}
+                erroresProduct.push('Tenés que subir una imagen de perfil')}
             else if(imagen.value != '' && !acceptedExtensions.includes(extension)) {
                 erroresProduct.push(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`)
             }
