@@ -202,7 +202,7 @@ body{
   .articulo-producto{
     width: 25%;
     max-height: 500px;
-    
+    text-align: center;
 
   }
 
@@ -321,6 +321,7 @@ width: 100%;
 
 .lista-list{
   display: flex;
+  justify-content: center;
   
 }
 
@@ -457,6 +458,10 @@ h4 {
   color: #424874;
 }
 
+.productosE{
+  color: #424874
+
+}
 
 
 main{

@@ -12,7 +12,26 @@
   <% for (let i = 0; i < productsResult.length; i++) { %>
     <ul>
         <li>
-            <a href="/products/<%=productsResult[i].id%>"> <%= productsResult[i].nombre %> </a>
+            <div class="conteiner20">
+            <div class="botellas"> <!--grid-->
+                            <% for (let i = 0; i < 3; i++) { %>
+                            <div class="articulo-producto"> <!--card-->
+                                <a href="/products/<%=productsResult[i].id%>"><img src="../images/<%=productsResult[i].imagen%>" alt="productos" class="imagen-destacados-home" > </a>
+                                <div class="btn-actions">
+                                <div class="prices">Nombre: <%=productsResult[i].nombre%></div>
+                                <div class="prices">$<%=productsResult[i].precio%></div>
+                                <div class="prices"><%=productsResult[i].descripcion%></div>
+                                </div>
+                            
+                            <div class="boton-comprar-products">
+                                <a href="/products/<%=productsResult[i]%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+                            </div>
+                            </div>
+                                    <% } %>
+            </div>
+                                
+                            
+        </div> 
         </li>
     </ul>
   <% } %>

@@ -4,25 +4,28 @@
 <body>
     <%- include ('../partials/header.ejs') %>  
 	<main>
-	<h4 class="productosE">Cervezas</h4>			
+	<h1 class="productosE">Cervezas</h1>			
 	<div class="conteiner">
-	<div class="botellas-productos"> <!--grid-->
-		<div>
+	<div class="botellas"> <!--grid-->
+	
 						<% cervezas.forEach(cervezas => {%>
-							<article class="articulo-productos"> <!--card-->
+					<article class="articulo-producto"> <!--card-->
 						<a href="/products/<%=cervezas.id%>"><img src="../images/<%=cervezas.imagen%>" alt="productos"> </a>
 						<div class="btn-actions">
-						<p class="prices">Nombre: <%=cervezas.nombre%></p>
-						<p class="prices">$<%=cervezas.precio%></p>
-						<p class="prices"><%=cervezas.descripcion%></p>
-						<p class="prices">Stock: <%=cervezas.stock%></p>
+						<div class="prices">Nombre: <%=cervezas.nombre%></div>
+						<div class="prices">$<%=cervezas.precio%></div>
+						<div class="prices"><%=cervezas.descripcion%></div>
+						<div class="prices">Stock: <%=cervezas.stock%></div>
 					</div>
 					<div class="boton-comprar-products">
                         <a href="/products/<%=cervezas.id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
                     </div>
+					
+							
 					</article>
-							<% }) %>
-		</div>
+					
+					<% }) %>
+		
 						
 	</div>
 	</div>         
