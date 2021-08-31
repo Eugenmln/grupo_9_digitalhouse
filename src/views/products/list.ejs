@@ -18,7 +18,7 @@
             <h1 class="titulosList"> Listado de Productos </h1>
                 <ul class="lista-list" >
                     <% for (let i = 0; i < products.length; i++) { %>
-                        <li class="articulo-producto">
+                        <li class="articulo-producto" style="list-style-type: none;" >
                             <a class="nombre-producto" href="/products/<%=products[i].id%>" > <%= products[i].nombre %> </a>
                             <form action="/products/<%=products[i].id%>?_method=DELETE" method="POST">
                                 <button type="submit" class="botonDelete"> Eliminar Producto </button>
