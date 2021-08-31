@@ -171,6 +171,14 @@ list: (req, res) => {
             res.render (path.join (__dirname, '../views/products/list.ejs'), {products: products})
         })
 },
+productos: (req, res) => {
+    db.Products.findAll({
+        order: [['nombre', 'ASC']]
+    })
+        .then((products) => {
+            res.render (path.join (__dirname, '../views/products/products.ejs'), {products: products})
+        })
+},
 
 detalle: (req, res) => {
     db.Products.findByPk(req.params.id)

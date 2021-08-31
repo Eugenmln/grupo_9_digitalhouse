@@ -194,9 +194,8 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 50px;
+  padding-bottom: 60px;
   
- 
 }
 
   .articulo-producto{
@@ -208,7 +207,7 @@ body{
 
 
   
-  .botellas > div:hover{
+  .botellas > .articulo-producto:hover{
     transform: translateY(5px);
     box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
   }
@@ -267,10 +266,25 @@ body{
   .botellas{
     grid-template-columns: repeat(1, 1fr);
     align-items: center;
+    display: grid;
     
   }
 
-  .botellas > .listadoDeProductos{
+  .botellas > div{
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3) ;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform .3s;
+    width: auto;
+    margin-bottom: 5px;
+    }
+
+    .botellas > div:hover{
+      transform: translateY(5px);
+      box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
+    }
+
+  .botellas > .articulo-producto{
     text-align: center;
     width: auto;
     margin-left: 1px;
@@ -617,13 +631,34 @@ float: left;
     width: 30%;
     height: 30%;
   } 
-
+ 
   .botellas{
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     margin: 1px;
+    display: grid;
+    grid-gap: 30px;
   }
+  .botellas > div{
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3) ;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform .3s;
+    width: auto;
+    margin-bottom: 5px;
+    }
 
+    .botellas > div:hover{
+      transform: translateY(5px);
+      box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
+    }
+
+  .botellas > .articulo-producto{
+    text-align: center;
+    width: auto;
+    margin-left: 1px;
+
+  }
   .botellas > .listadoDeProductos{
     text-align: center;
     width: auto;

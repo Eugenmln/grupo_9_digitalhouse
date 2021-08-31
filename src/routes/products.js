@@ -33,6 +33,8 @@ router.get ('/buscarPorCategoria', productsController.buscarPorCategoria)
 
 router.get ('/', productsController.list)
 
+router.get ('/productos', productsController.productos)
+
 router.get ('/cervezas', productsController.cervezas)
 
 router.get ('/vinos', productsController.vinos)

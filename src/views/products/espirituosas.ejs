@@ -4,27 +4,28 @@
 <body>
     <%- include ('../partials/header.ejs') %>  
 	<main>
-	<h4 class="productosE">Espirituosas</h4>			
-	<div class="conteiner">
-	<section class="botellas"> <!--grid-->
-						<% espirituosas.forEach(espirituosas => {%>
-							<article class="listadoDeProductos"> <!--card-->
-						<a href="/products/<%=espirituosas.id%>"><img src="../images/<%=espirituosas.imagen%>" alt="productos"> </a>
-						<div class="btn-actions">
-						<p class="prices">Nombre: <%=espirituosas.nombre%></p>
-						<p class="prices">$<%=espirituosas.precio%></p>
-						<p class="prices"><%=espirituosas.descripcion%></p>
-						<p class="prices">Stock: <%=espirituosas.stock%></p>
-					</div>
-					<div class="boton-comprar-products">
-                        <a href="/products/<%=espirituosas.id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
-                    </div>
-					</article>
-							<% }) %>
-						
-					</section>
-				</div>    
-			</main>           
+		<h3>espirituosas</h3>			
+		<div class="conteiner">
+			<div class="botellas"> <!--grid-->
+							<% for (let i = 0; i < espirituosas.length; i++) { %>
+							<div class="articulo-producto"> <!--card-->
+								<a href="/products/<%=espirituosas[i].id%>"><img src="../images/<%=espirituosas[i].imagen%>" alt="productos" class="imagen-destacados-home" > </a>
+								<div class="btn-actions">
+								<div class="prices">Nombre: <%=espirituosas[i].nombre%></div>
+								<div class="prices">$<%=espirituosas[i].precio%></div>
+								<div class="prices"><%=espirituosas[i].descripcion%></div>
+								</div>
+							
+							<div class="boton-comprar-products">
+								<a href="/products/<%=espirituosas[i].id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+							</div>
+							</div>
+									<% } %>
+			</div>
+								
+							
+		</div>    
+	</main>
     <%- include ('../partials/footer.ejs') %>  
 </body>
 </html>

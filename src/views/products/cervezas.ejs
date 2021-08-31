@@ -4,29 +4,28 @@
 <body>
     <%- include ('../partials/header.ejs') %>  
 	<main>
-	<h4 class="productosE">Cervezas</h4>			
+	<h3>Cervezas</h3>			
 	<div class="conteiner">
-	<div class="botellas-productos"> <!--grid-->
-		<div>
-						<% cervezas.forEach(cervezas => {%>
-							<article class="articulo-productos"> <!--card-->
-						<a href="/products/<%=cervezas.id%>"><img src="../images/<%=cervezas.imagen%>" alt="productos"> </a>
-						<div class="btn-actions">
-						<p class="prices">Nombre: <%=cervezas.nombre%></p>
-						<p class="prices">$<%=cervezas.precio%></p>
-						<p class="prices"><%=cervezas.descripcion%></p>
-						<p class="prices">Stock: <%=cervezas.stock%></p>
-					</div>
-					<div class="boton-comprar-products">
-                        <a href="/products/<%=cervezas.id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
-                    </div>
-					</article>
-							<% }) %>
-		</div>
+		<div class="botellas"> <!--grid-->
+						<% for (let i = 0; i < cervezas.length; i++) { %>
+						<div class="articulo-producto"> <!--card-->
+							<a href="/products/<%=cervezas[i].id%>"><img src="../images/<%=cervezas[i].imagen%>" alt="productos" class="imagen-destacados-home" > </a>
+							<div class="btn-actions">
+							<div class="prices">Nombre: <%=cervezas[i].nombre%></div>
+							<div class="prices">$<%=cervezas[i].precio%></div>
+							<div class="prices"><%=cervezas[i].descripcion%></div>
+							</div>
 						
-	</div>
-	</div>         
-	</main>      
+						<div class="boton-comprar-products">
+							<a href="/products/<%=cervezas[i].id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+						</div>
+						</div>
+								<% } %>
+		</div>
+							
+						
+	</div>    
+</main>
     <%- include ('../partials/footer.ejs') %>  
 </body>
 </html>

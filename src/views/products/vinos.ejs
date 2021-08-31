@@ -4,27 +4,28 @@
 <body>
     <%- include ('../partials/header.ejs') %>  
 	<main>
-	<h4 class="productosE">Vinos</h4>			
+	<h3>Vinos</h4>			
 	<div class="conteiner">
-	<section class="botellas"> <!--grid-->
-						<% vinos.forEach(vinos => {%>
-							<article class="listadoDeProductos"> <!--card-->
-						<a href="/products/<%=vinos.id%>"><img src="../images/<%=vinos.imagen%>" alt="productos"> </a>
-						<div class="btn-actions">
-						<p class="prices">Nombre: <%=vinos.nombre%></p>
-						<p class="prices">$<%=vinos.precio%></p>
-						<p class="prices"><%=vinos.descripcion%></p>
-						<p class="prices">Stock: <%=vinos.stock%></p>
-					</div>
-					<div class="boton-comprar-products">
-                        <a href="/products/<%=vinos.id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
-                    </div>
-					</article>
-							<% }) %>
+		<div class="botellas"> <!--grid-->
+						<% for (let i = 0; i < vinos.length; i++) { %>
+						<div class="articulo-producto"> <!--card-->
+							<a href="/products/<%=vinos[i].id%>"><img src="../images/<%=vinos[i].imagen%>" alt="productos" class="imagen-destacados-home" > </a>
+							<div class="btn-actions">
+							<div class="prices">Nombre: <%=vinos[i].nombre%></div>
+							<div class="prices">$<%=vinos[i].precio%></div>
+							<div class="prices"><%=vinos[i].descripcion%></div>
+							</div>
 						
-					</section>
-				</div>           
-			</main>    
+						<div class="boton-comprar-products">
+							<a href="/products/<%=vinos[i].id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+						</div>
+						</div>
+								<% } %>
+		</div>
+							
+						
+	</div>    
+</main>
     <%- include ('../partials/footer.ejs') %>  
 </body>
 </html>
