@@ -14,9 +14,7 @@ let usersController = {
 
     login:(req, res) => res.render ("users/login"),
 
-    envio:(req, res) => res.render ("users/tiempodeenvio"),
 
-    costo:(req, res) => res.render ("users/costodeenvio"),
 
 
     list: (req, res) => {

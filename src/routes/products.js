@@ -35,14 +35,6 @@ router.get ('/', productsController.list)
 
 router.get ('/productos', productsController.productos)
 
-router.get ('/cervezas', productsController.cervezas)
-
-router.get ('/vinos', productsController.vinos)
-
-router.get ('/licores', productsController.licores)
-
-router.get ('/espirituosas', productsController.espirituosas)
-
 
 // router.get ('/productos', productsController.productos)
 

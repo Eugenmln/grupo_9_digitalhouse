@@ -118,50 +118,8 @@ delete: (req, res) => {
      .then(() => res.redirect('/products'))
 },
 
-cervezas: (req, res) => {
-    db.Products.findAll({
-        where: {
-            category_id: 3
-        }
-    })
-        .then((cervezas) => {
-            res.render('products/cervezas', {cervezas: cervezas})
-        })
 
-},
-vinos: (req, res) => {
-    db.Products.findAll({
-        where: {
-            category_id: 1
-        }
-    })
-        .then((vinos) => {
-            res.render('products/vinos', {vinos: vinos})
-        })
 
-},
-licores: (req, res) => {
-    db.Products.findAll({
-        where: {
-            category_id: 4
-        }
-    })
-        .then((licores) => {
-            res.render('products/licores', {licores: licores})
-        })
-
-},
-espirituosas: (req, res) => {
-    db.Products.findAll({
-        where: {
-            category_id: 2
-        }
-    })
-        .then((espirituosas) => {
-            res.render('products/espirituosas', {espirituosas: espirituosas})
-        })
-
-},
 
 list: (req, res) => {
     db.Products.findAll({

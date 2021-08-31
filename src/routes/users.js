@@ -29,9 +29,7 @@ router.get("/logout", usersController.logout)
 
 router.get ('/list', usersController.list)
 
-router.get ('/envio', usersController.envio)
 
-router.get ('/costo', usersController.costo)
 
 router.post("/register", upload.single("avatar"), registerValidation, usersController.processRegister);
 
