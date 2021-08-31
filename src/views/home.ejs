@@ -51,26 +51,26 @@
         </div>
         
     	
-            <div class="conteiner20">
+        <div class="conteiner20">
             <div class="botellas"> <!--grid-->
                             <% for (let i = 0; i < 3; i++) { %>
-                            <article class="articulo-producto"> <!--card-->
-                                <a href="/products/<%=products[i].id%>"><img src="../images/<%=products[i].imagen%>" alt="productos"> </a>
+                            <div class="articulo-producto"> <!--card-->
+                                <a href="/products/<%=products[i].id%>"><img src="../images/<%=products[i].imagen%>" alt="productos" class="imagen-destacados-home" > </a>
                                 <div class="btn-actions">
-                                <p class="prices">Nombre: <%=products[i].nombre%></p>
-                                <p class="prices">$<%=products[i].precio%></p>
-                                <p class="prices"><%=products[i].descripcion%></p>
-                               
-                            </div>
+                                <div class="prices">Nombre: <%=products[i].nombre%></div>
+                                <div class="prices">$<%=products[i].precio%></div>
+                                <div class="prices"><%=products[i].descripcion%></div>
+                                </div>
+                            
                             <div class="boton-comprar-products">
                                 <a href="/products/<%=products[i]%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
                             </div>
-                            </article>
+                            </div>
                                     <% } %>
             </div>
                                 
                             
-            </div>               
+        </div>               
                     <h3>Otras opciones</h3>
                 <section class="otras-opciones">
                     <img src="/images/otras-opciones.jpg" alt="Promo" class="Peroni">

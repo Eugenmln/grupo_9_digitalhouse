@@ -16,7 +16,7 @@
          <%- include ('../partials/header.ejs') %> 
          <body>
             <h1 class="titulosList"> Listado de Productos </h1>
-                <ul >
+                <ul class="lista-list" >
                     <% for (let i = 0; i < products.length; i++) { %>
                         <li class="list">
                             <a class="nombre-producto" href="/products/<%=products[i].id%>" > <%= products[i].nombre %> </a>
