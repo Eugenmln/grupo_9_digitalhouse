@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include ('../partials/head.ejs') %>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,14 @@
     <title> Búsqueda por Categoría </title>
 </head>
 <body>
+  <%- include ('../partials/header.ejs') %>
   <% for (let i = 0; i < productsResult.length; i++) { %>
     <ul>
         <li>
             <a href="/products/<%=productsResult[i].id%>"> <%= productsResult[i].nombre %> </a>
         </li>
     </ul>
-  <% } %>      
+  <% } %>
+  <%- include ('../partials/footer.ejs') %>       
 </body>
 </html>

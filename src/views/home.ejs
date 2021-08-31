@@ -27,14 +27,14 @@
         <main>
          <div class="swiper mySwiper">
             <section class="swiper-wrapper"> <!--grid-->
-                            <% for (let i = 2; i < 5; i++) { %>
+                            <% for (let i = 0; i < 3; i++) { %>
                                     <article class="swiper-slide"> <!--card-->
                                        <a href="/products/<%=products[i].id%>"><img src="../images/<%=products[i].imagen%>" alt="productos"> </a>
                                        <div class="swiper-button-next"></div>
                                        <div class="swiper-button-prev"></div>
                                 <div class="btn-actions">
                                 <p class="prices">Nombre: <%=products[i].nombre%></p>
-                                <p class="prices"><%=products[i].precio%></p>
+                                <p class="prices">$<%=products[i].precio%></p>
                                 <p class="prices"><%=products[i].descripcion%></p>
                                
                             </div>
@@ -52,13 +52,13 @@
         
     	
             <div class="conteiner20">
-            <section class="botellas"> <!--grid-->
+            <div class="botellas"> <!--grid-->
                             <% for (let i = 0; i < 3; i++) { %>
-                                    <article class="listadoDeProductos"> <!--card-->
+                            <article class="articulo-producto"> <!--card-->
                                 <a href="/products/<%=products[i].id%>"><img src="../images/<%=products[i].imagen%>" alt="productos"> </a>
                                 <div class="btn-actions">
                                 <p class="prices">Nombre: <%=products[i].nombre%></p>
-                                <p class="prices"><%=products[i].precio%></p>
+                                <p class="prices">$<%=products[i].precio%></p>
                                 <p class="prices"><%=products[i].descripcion%></p>
                                
                             </div>
@@ -67,9 +67,10 @@
                             </div>
                             </article>
                                     <% } %>
+            </div>
                                 
                             
-                        </div>               
+            </div>               
                     <h3>Otras opciones</h3>
                 <section class="otras-opciones">
                     <img src="/images/otras-opciones.jpg" alt="Promo" class="Peroni">

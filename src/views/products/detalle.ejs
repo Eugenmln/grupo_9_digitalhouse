@@ -13,12 +13,6 @@
                         <img src="../images/<%=product.imagen ? product.imagen : 'productDefault.png' %>" alt="imagen principal">
                     </div>
 
-                    <div class='img-secundarias'>
-                        <img src="./images/" alt="img secundaria" class="img-sec-1">
-                        <img src="./images/" alt="img secundaria" class="img-sec-2">
-                        <img src="./images/" alt="img secundaria" class="img-sec-3">
-                        <img src="./images/" alt="img secundaria" class="img-sec-4">
-                    </div>
             </figure>
 
             <div class='info-producto-principal'>
@@ -31,10 +25,10 @@
 
                 <div class='compras'>
                     <span class="añadir-carrito">  
-                    <button type="submit" class="botones">Añadir al carrito</button>
+                    <button type="submit" class="botones-detalle">Añadir al carrito</button>
                     </span> 
                     <span class="compra">
-                    <button type="submit" class="botones">Comprar</button>
+                    <button type="submit" class="botones-detalle">Comprar</button>
                     </span>
                 </div>
                     <form action="/products/<%=product.id%>/edit" method="GET">
@@ -101,6 +95,7 @@
             </article>
         </section>
     </main>
+    <br></br>
     <%- include ('../partials/footer.ejs') %>
 </body>
 </html>
