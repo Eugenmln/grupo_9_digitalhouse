@@ -17,10 +17,6 @@ Seleccionamos estas webs debido a que nos parecieron las mas amigables para el u
 - Frappe (http://https://frappe.com.ar/)
 
 ### Nosotros
- **Julieta Rinaudo**
-- Edad: 18 años
-- Ocupación: Estudiante
-- Tiempo libre: Julieta es una gran aficionada de la fotografia
 
 **Tomas Vilariño**
 - Edad: 22 años
