@@ -18,7 +18,7 @@
             <h1 class="titulosList"> Listado de Productos </h1>
                 <ul class="lista-list" >
                     <% for (let i = 0; i < products.length; i++) { %>
-                        <li class="articulo-producto" style="list-style-type: none;" >
+                        <li class="articulo-producto">
                             <a class="nombre-producto" href="/products/<%=products[i].id%>" > <%= products[i].nombre %> </a>
                             <br>
                             <form action="/products/<%=products[i].id%>/edit" method="GET">
