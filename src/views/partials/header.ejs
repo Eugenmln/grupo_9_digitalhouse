@@ -5,12 +5,11 @@
     <div class="menu-principal">
         <div class="topnav">
             <a href="/">HOME</a>
-            <a href="/products">GENERAL</a>
             <a href="/cervezas">CERVEZAS</a>
             <a href="/vinos">VINOS</a>
             <a href="/licores">LICORES</a>
             <a href="/espirituosas">ESPIRITUOSAS</a>
-
+            <a href="http://localhost:3000/">DASHBOARD</a>
         </div>
     </div>
     <div class="menu-secundario">
@@ -19,11 +18,10 @@
             <button id="burger-btn"><i class="fas fa-bars"></i></button>
             <div class="topnav-burger">
                 <a href="/">HOME</a>
-            <a href="/products">GENERAL</a>
-            <a href="/cervezas">CERVEZAS</a>
-            <a href="/vinos">VINOS</a>
-            <a href="/licores">LICORES</a>
-            <a href="/espirituosas">ESPIRITUOSAS</a>
+                <a href="/cervezas">CERVEZAS</a>
+                <a href="/vinos">VINOS</a>
+                <a href="/licores">LICORES</a>
+                <a href="/espirituosas">ESPIRITUOSAS</a>
             </div>
         </div>
 
@@ -32,12 +30,15 @@
             <a href="/users/perfilDeusuario"><button id="iconos">Perfil</button></a>
             <a href="/users/logout"><button id="iconos" class="fas fa-users-slash"></button></a>
             <a href="/users/carrito"><button id="iconos" class="fas fa-store" alt="carrito"></button></a>
+            <!--
             <a href=/products/buscarPorNombre><button id="iconos" class="fas fa-search"></button></a>
-
+            -->
        <% } else {  %>
             <a href="/users/login"><button id="iconos" class="fas fa-user-ninja"></button></a>
             <a href="/users/register"><button id="iconos" class="fas fa-id-badge"></button></a>
+            <!--
             <a href=/products/buscarPorNombre><button id="iconos" class="fas fa-search"></button></a>
+            -->    
         <% } %>
     </div>
 </header>

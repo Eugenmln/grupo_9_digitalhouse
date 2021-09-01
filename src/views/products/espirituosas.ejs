@@ -4,7 +4,7 @@
 <body>
     <%- include ('../partials/header.ejs') %>  
 	<main>
-		<h3>espirituosas</h3>			
+		<h3>Espirituosas</h3>			
 		<div class="conteiner">
 			<div class="botellas"> <!--grid-->
 							<% for (let i = 0; i < espirituosas.length; i++) { %>
@@ -12,7 +12,7 @@
 								<a href="/products/<%=espirituosas[i].id%>"><img src="../images/<%=espirituosas[i].imagen%>" alt="productos" class="imagen-destacados-home" > </a>
 								<div class="btn-actions">
 								<div class="prices">Nombre: <%=espirituosas[i].nombre%></div>
-								<div class="prices">$<%=espirituosas[i].precio%></div>
+								<div class="prices"><%=espirituosas[i].precio%></div>
 								<div class="prices"><%=espirituosas[i].descripcion%></div>
 								</div>
 							

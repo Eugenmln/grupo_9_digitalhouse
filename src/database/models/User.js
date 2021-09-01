@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         avatar: {
             type: DataTypes.TEXT,
             allowNull: false
+        },
+        is_admin: {
+            type: DataTypes.TINYINT,
+            defaultValue: 0
         }
     }
 

@@ -20,6 +20,12 @@
                     <% for (let i = 0; i < products.length; i++) { %>
                         <li class="articulo-producto">
                             <a class="nombre-producto" href="/products/<%=products[i].id%>" > <%= products[i].nombre %> </a>
+                            <br>
+                            <form action="/products/<%=products[i].id%>/edit" method="GET">
+                                <button type="submit" class="botonDelete"> Editar Producto </button>
+                            </form>
+                            
+                            <br>
                             <form action="/products/<%=products[i].id%>?_method=DELETE" method="POST">
                                 <button type="submit" class="botonDelete"> Eliminar Producto </button>
                             </form>
@@ -27,7 +33,9 @@
                     <% } %>
                 </ul>
             </form>
-        
+            
+            <br>
+
             <form action="/products/create" class="form" method="GET" enctype="multipart/form-data">
                 <div class="form-group">
                 </div>
@@ -38,7 +46,7 @@
                     </div>
                 </div>
             </form>
-
+<!--
             <h1 class="titulosList"> Busqueda de Productos </h1>
         <div class="listContenedor" >
             <div class="listFila">
@@ -58,6 +66,15 @@
                 </div>
             </div>
         </div>
+-->         
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 
                 <%- include ('../partials/footer.ejs') %> 
             </body>

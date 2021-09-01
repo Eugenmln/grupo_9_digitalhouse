@@ -78,6 +78,7 @@ let apisController = {
                             name: product.nombre,
                             description: product.descripcion,
                             category: product.category_id,
+                            price: product.precio,
                             detail: `http://localhost:1050/products/${product.id}`
                         }
                     })

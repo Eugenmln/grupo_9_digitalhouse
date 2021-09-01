@@ -12,11 +12,20 @@
                     <div class='img-principal'>
                         <img src="../images/<%=product.imagen ? product.imagen : 'productDefault.png' %>" alt="imagen principal">
                     </div>
-
+                    <!--
+                    <div class='img-secundarias'>
+                        <img src="./images/" alt="img secundaria" class="img-sec-1">
+                        <img src="./images/" alt="img secundaria" class="img-sec-2">
+                        <img src="./images/" alt="img secundaria" class="img-sec-3">
+                        <img src="./images/" alt="img secundaria" class="img-sec-4">
+                    </div>
+                    -->
             </figure>
 
             <div class='info-producto-principal'>
+                
                 <p> <%= product.nombre %> </p>
+                
                 <p> <%= product.precio %> </p>
 
                 <article class='descripcion'>
@@ -25,32 +34,35 @@
 
                 <div class='compras'>
                     <span class="añadir-carrito">  
-                    <button type="submit" class="botones-detalle">Añadir al carrito</button>
+                        <button type="submit" class="botones">Añadir al carrito</button>
                     </span> 
+                    <!--
                     <span class="compra">
-                    <button type="submit" class="botones-detalle">Comprar</button>
+                        <button type="submit" class="botones">Comprar</button>
                     </span>
+                    -->
                 </div>
-                    <form action="/products/<%=product.id%>/edit" method="GET">
-                        <button type="submit" class="botonDelete"> Editar Producto </button>
-                    </form>
-                <div>
-
-                </div>
+                <!--
+                <% if(locals.admin != false) { %>
+                <form action="/products/<%=product.id%>/edit" method="GET">
+                    <button type="submit" class="botonDelete"> Editar Producto </button>
+                </form>
+                <% } %>
+                -->
             </div>       
 
         </section>
 
         <div class="envios">
-            <span class="botonP">
-            <a href="/envio"><button type="submit" class="botonE">Tiempos de envio</button></a>            
+            <span class="boton1">
+                <a href="/envio"><button type="submit" class="boton">Tiempos de envio</button></a>            
         </span>
         <span class="boton2">    
-            <a href="/costo"><button type="submit" class="botonE">Ver costos de envio</button></a>
- 
-    </span>
-    </div>
+            <a href="/costo"><button type="submit" class="boton">Ver costos de envio</button></a>     
+        </span>
 
+        </div>
+        <!--
         <h2>Productos Relacionados</h2>
         <section class='productos-relacionados'>
             <article class='articulo'>
@@ -94,8 +106,8 @@
                 </div>
             </article>
         </section>
+        -->
     </main>
-    <br></br>
     <%- include ('../partials/footer.ejs') %>
 </body>
 </html>

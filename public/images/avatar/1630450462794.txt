@@ -1,0 +1,38 @@
+Sprint 7:
+
+-- Al editar un producto debe aparecer la imagen del mismo
+
+-- Confirme su contraseña
+
+-- Distintos tipos de usuarios
+
+-- Hacer diferencia de lo que puede hacer un administrador (crear, editar y eliminar productos)
+
+-- Arreglar el responsiveness
+
+-- Arreglar el diseño
+
+--  Al renderizar la vista profile, no hace falta pasarle a la vista los datos del usuario. Recuerden que los cargan en locals gracias al middleware "userLoggedMiddleware" que realizaron y pueden acceder a los mismos con la variable local "userLogged".
+
+-- Revisar indentación.
+
+-- En el primer parámetro, del método res.render(), no hace falta pasarle una ruta absoluta, desde la ubicación del controlador hacia la ubicación del archivo. Podemos indicarle directamente el nombre del archivo sin la extensión ejs. Esto es posible porque en app.js configuramos mediante app.set() todo lo relacionado a la vista y le indicamos a express donde encontrar nuestras vistas.
+Ejemplo: res.render('home') en vez de res.render(path.join (__dirname, '../views/home.ejs'))
+
+-- Index de productos
+
+-- Clase martes 17/08 explicación sprint 8 
+
+
+
+--- En el home tendríamos que traer los productos que son los destacados del mes, los preferidos de la semana y, en Otras opciones deberían aparecer los demás productos. 
+
+-- Productos relacionados deberían ser productos de la misma categoría. 
+
+
+
+
+
+
+
+

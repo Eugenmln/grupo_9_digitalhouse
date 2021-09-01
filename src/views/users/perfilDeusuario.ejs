@@ -14,12 +14,21 @@
 				<article class="imagenDePerfil">
 					<img src="../../images/avatar/<%= user.avatar%>">
 				</article>
-				<article class="btnPerfil">
-			   <div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Mis Compras</button></a> </div>
-				<div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Mis Direcciones</button></a> </div>
-				<div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Mis Datos Personales</button></a> </div>
-				<div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Vales de descuento</button></a> </div>
-			</article>
+				<% if(locals.admin == false) { %>
+					<article class="btnPerfil">
+						<div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Mis Compras</button></a> </div>
+						<div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Mis Direcciones</button></a> </div>
+						<div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Mis Datos Personales</button></a> </div>
+						<div class="pricess"><a href="/users/perfilDeusuario"><button id="iconos2">Vales de descuento</button></a> </div>
+					</article>
+				<% } else { %>
+					<br>
+					<br>
+					<div class="panel-productos">
+						<a href="/products"><button id="iconos2"> Panel de Productos </button></a>
+					</div>					
+					<br>
+				<% } %>
 			</div>
 		</div>
 	</div>

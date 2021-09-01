@@ -14,10 +14,10 @@
         
         <div class="envios">
             <span class="botonP">
-            <a href="users/envio"><button type="submit" class="botonE">Tiempos de envio</button></a>            
+            <a href="/envio"><button type="submit" class="botonE">Tiempos de envio</button></a>            
         </span>
         <span class="boton2">    
-            <a href="users/costo"><button type="submit" class="botonE">Ver costos de envio</button></a>
+            <a href="/costo"><button type="submit" class="botonE">Costos de envio</button></a>
  
     </span>
             </div>
@@ -34,7 +34,7 @@
                                        <div class="swiper-button-prev"></div>
                                 <div class="btn-actions">
                                 <p class="prices">Nombre: <%=products[i].nombre%></p>
-                                <p class="prices">$<%=products[i].precio%></p>
+                                <p class="prices"><%=products[i].precio%></p>
                                 <p class="prices"><%=products[i].descripcion%></p>
                                
                             </div>
@@ -58,12 +58,12 @@
                                 <a href="/products/<%=products[i].id%>"><img src="../images/<%=products[i].imagen%>" alt="productos" class="imagen-destacados-home" > </a>
                                 <div class="btn-actions">
                                 <div class="prices">Nombre: <%=products[i].nombre%></div>
-                                <div class="prices">$<%=products[i].precio%></div>
+                                <div class="prices"><%=products[i].precio%></div>
                                 <div class="prices"><%=products[i].descripcion%></div>
                                 </div>
                             
                             <div class="boton-comprar-products">
-                                <a href="/products/<%=products[i]%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
+                                <a href="/products/<%=products[i].id%>"><button type="submit" class="boton-comprar-products">Comprar</button></a>
                             </div>
                             </div>
                                     <% } %>
@@ -90,9 +90,9 @@
       centeredSlides: true,
       slidesPerView: "auto",
       coverflowEffect: {
-        rotate: 00,
+        rotate: 10,
         stretch: 0,
-        depth: 0,
+        depth: 10,
         modifier: 1,
         slideShadows: true,
       },
