@@ -86,5 +86,21 @@
 
 - Mantener el buen clima y el compañerismo para mejorar en la organización y optimización del tiempo. 
 
+# Retrospectiva Sprint 6:
+
+# Que estamos haciendo bien:
+
+- Buen clima de trabajo y compañerismo. 
+
+- Mejor organización tanto en lo grupal como en lo personal. Mayor eficiencia en el manejo del tiempo escaso.
+
+# Que estamos haciendo mal:
+
+- Dejar los detalles para el último momento y estar estresados y a las corridas.
+
+# Que tenemos que seguir haciendo:
+
+- Mantener el buen clima, el compañerismo y la organización para llegar a buen término con la entrega final del proyecto. 
+
 
 
