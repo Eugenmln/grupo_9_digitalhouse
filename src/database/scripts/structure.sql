@@ -114,7 +114,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `categories_idx` (`category_id`),
   CONSTRAINT `categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='	';
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='	';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,6 +123,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (84,'Corona','Cerveza rubia de origen mexicano','product-1630421015649.jpg','$700',100,3),(85,'Las Perdices','Vino malbec de origen mendocino','product-1630423568578.jpg','$900',100,1),(86,'Jack Daniels','Whisky de origen estadounidense','product-1630423679935.jpg','$700',200,2),(87,'Baileys','Licor de crema de origen irlandés','product-1630423775805.jpg','$900',100,4);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,9 +140,10 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contraseña` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_admin` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `e-mail_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,6 +152,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (39,'Pablo Javier Hernandez','pablohernandezrom@gmail.com','$2a$10$mJZJiBr8nLWiqpw4RF6To.uLNObrO4GuDM5.HgPhGG6Nj2lGN2CTe','1630440391814.png',0),(40,'Administrador','administrador@administrador.com','$2a$10$ks7yJtuIJbMNXbMLLn2.7uGVpIrhNueo2c5JdWaCBfuJ7apuHKiQm','1630440437695.png',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -162,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-17 17:30:05
+-- Dump completed on 2021-09-06 11:14:37
